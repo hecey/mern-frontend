@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 export default class CreateUser extends  Component {
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.onChangeUsername = this.onChangeUsername.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         
 
-        this.state={
-            username:''
+        this.state = {
+            username: ''
         }
     }
 
@@ -29,9 +29,9 @@ export default class CreateUser extends  Component {
         console.log(user);
         axios.post('http://localhost:8080/users/add',user)
             .then(res => console.log(res.data));
-        this.setState={
-            username:''
-        }
+        this.setState({
+            username: ''
+        });
     }
 
     render(){
