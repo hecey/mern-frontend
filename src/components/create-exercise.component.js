@@ -23,29 +23,29 @@ export default class CreateExercise extends  Component {
     componentDidMount(){
         this.setState({
             users: ['test user'],
-            username: 'test uesr'
+            username: 'test user'
         });
     }
 
     onChangeUsername(e){
         this.setState({
             username: e.target.value
-        })
+        });
     }
     onChangeDescription(e){
         this.setState({
             description: e.target.value
-        })
+        });
     }
     onChangeDuration(e){
         this.setState({
             duration: e.target.value
-        })
+        });
     }
     onChangeDate(date){
         this.setState({
             date: date
-        })
+        });
     }
 
     onSubmit(e){
@@ -56,9 +56,9 @@ export default class CreateExercise extends  Component {
             description: this.state.description,
             duration: this.state.duration,
             date: this.state.date
-        }
+        };
 
-        console.log(exercise)
+        console.log(exercise);
 
         window.location = '/';
     }
@@ -67,13 +67,13 @@ export default class CreateExercise extends  Component {
              <div>
                 <h3>Create New Exercise</h3>
                 <form onSubmit={this.onSubmit}>
-                    <div className="form-group">
+                <div className="form-group">
                         <label>Username: </label>
                         <select ref="userInput"
                             required
                             className="form-control"
                             value={this.state.username}
-                            onChange={this.state.onChangeUsername}>
+                            onChange={this.onChangeUsername}>
                             {
                                 this.state.users.map(function(user){
                                     return <option
@@ -90,22 +90,23 @@ export default class CreateExercise extends  Component {
                             required
                             className="form-control"
                             value={this.state.description}
-                            onChange={this.state.onChangeDescription}
+                            onChange={this.onChangeDescription}
                             />
                     </div>
                     <div className="form-group">
                         <label>Duration (in minutes): </label>
-                        <input type="text"
+                        <input 
+                            type="text"
                             className="form-control"
                             value={this.state.duration}
-                            onChange={this.state.onChangeDuration}
+                            onChange={this.onChangeDuration}
                             />
                     </div>
                     <div className="form-group">
                         <label>Date: </label>
                         <div>
                             <DatePicker
-                            //selected={this.state.date}
+                            selected={this.state.date}
                             onChange={this.onChangeDate}
                             value={this.state.date}
                             />
